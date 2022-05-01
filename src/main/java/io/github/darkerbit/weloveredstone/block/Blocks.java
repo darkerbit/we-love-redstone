@@ -32,10 +32,31 @@ import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
-	public static final Block OR_GATE_BLOCK = new OrGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
+	public static final Block OR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> left || right || mid);
+
+	public static final Block NOR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> !(left || right || mid));
+
+	public static final Block AND_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> (left || right) && mid);
+
+	public static final Block NAND_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> !((left || right) && mid));
+
+	public static final Block XOR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> left ^ right ^ mid);
+
+	public static final Block XNOR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			(left, right, mid) -> !(left ^ right ^ mid));
 
 	public static void register() {
 		registerBlockWithItem(WeLoveRedstone.identifier("or_gate_block"), OR_GATE_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("nor_gate_block"), NOR_GATE_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("and_gate_block"), AND_GATE_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("nand_gate_block"), NAND_GATE_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("xor_gate_block"), XOR_GATE_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("xnor_gate_block"), XNOR_GATE_BLOCK);
 	}
 
 	private static void registerBlock(Identifier id, Block block) {

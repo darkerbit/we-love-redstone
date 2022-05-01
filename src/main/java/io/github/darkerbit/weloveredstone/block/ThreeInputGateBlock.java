@@ -33,14 +33,20 @@ import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class OrGateBlock extends AbstractGateBlock {
+public class ThreeInputGateBlock extends AbstractGateBlock {
+	public interface ThreeInputEvaluator {
+		boolean evaluate(boolean left, boolean right, boolean mid);
+	}
+
 	private static final BooleanProperty OUT = Properties.POWERED;
 
 	private static final BooleanProperty LEFT = BooleanProperty.of("left");
 	private static final BooleanProperty RIGHT = BooleanProperty.of("right");
 	private static final BooleanProperty MID = BooleanProperty.of("mid");
 
-	protected OrGateBlock(Settings settings) {
+	private final ThreeInputEvaluator evaluator;
+
+	protected ThreeInputGateBlock(Settings settings, ThreeInputEvaluator evaluator) {
 		super(settings);
 
 		outputs.put(Direction.NORTH, OUT);
@@ -55,6 +61,8 @@ public class OrGateBlock extends AbstractGateBlock {
 				.with(LEFT, false)
 				.with(RIGHT, false)
 				.with(MID, false));
+
+		this.evaluator = evaluator;
 	}
 
 	@Override
@@ -63,7 +71,7 @@ public class OrGateBlock extends AbstractGateBlock {
 		boolean right = getInput(state, world, pos, RIGHT);
 		boolean mid = getInput(state, world, pos, MID);
 
-		return state.with(LEFT, left).with(RIGHT, right).with(MID, mid).with(OUT, left || right || mid);
+		return state.with(LEFT, left).with(RIGHT, right).with(MID, mid).with(OUT, evaluator.evaluate(left, right, mid));
 	}
 
 	@Override
