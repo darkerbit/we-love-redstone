@@ -20,25 +20,31 @@
  * SOFTWARE.
  */
 
-package io.github.darkerbit.weloveredstone;
+package io.github.darkerbit.weloveredstone.block;
 
-import io.github.darkerbit.weloveredstone.block.Blocks;
+import io.github.darkerbit.weloveredstone.WeLoveRedstone;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.minecraft.util.registry.Registry;
+import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
+import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
-public class WeLoveRedstone implements ModInitializer {
-	public static final Logger LOGGER = LoggerFactory.getLogger("We Love Redstone!");
+public final class Blocks {
+	public static final Block OR_GATE_BLOCK = new OrGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
 
-	public static final String MOD_ID = "weloveredstone";
-	public static Identifier identifier(String id) {
-		return new Identifier(MOD_ID, id);
+	public static void register() {
+		registerBlockWithItem(WeLoveRedstone.identifier("or_gate_block"), OR_GATE_BLOCK);
 	}
 
-	@Override
-	public void onInitialize(ModContainer mod) {
-		Blocks.register();
+	private static void registerBlock(Identifier id, Block block) {
+		Registry.register(Registry.BLOCK, id, block);
+	}
+
+	private static void registerBlockWithItem(Identifier id, Block block) {
+		registerBlock(id, block);
+
+		Registry.register(Registry.ITEM, id, new BlockItem(block, new QuiltItemSettings().group(ItemGroup.REDSTONE)));
 	}
 }
