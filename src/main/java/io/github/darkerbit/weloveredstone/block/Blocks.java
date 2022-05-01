@@ -47,6 +47,10 @@ public final class Blocks {
 
 	public static final Block HALF_ADDER_BLOCK = new HalfAdderBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
 
+	public static final Block MULTIPLEXER_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
+			((left, right, mid) -> mid ? right : left));
+	public static final Block DEMULTIPLEXER_BLOCK = new DemultiplexerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
+
 	public static void register() {
 		registerBlockWithItem(WeLoveRedstone.identifier("or_gate_block"), OR_GATE_BLOCK);
 		registerBlockWithItem(WeLoveRedstone.identifier("nor_gate_block"), NOR_GATE_BLOCK);
@@ -56,6 +60,9 @@ public final class Blocks {
 		registerBlockWithItem(WeLoveRedstone.identifier("xnor_gate_block"), XNOR_GATE_BLOCK);
 
 		registerBlockWithItem(WeLoveRedstone.identifier("half_adder_block"), HALF_ADDER_BLOCK);
+
+		registerBlockWithItem(WeLoveRedstone.identifier("multiplexer_block"), MULTIPLEXER_BLOCK);
+		registerBlockWithItem(WeLoveRedstone.identifier("demultiplexer_block"), DEMULTIPLEXER_BLOCK);
 	}
 
 	private static void registerBlock(Identifier id, Block block) {

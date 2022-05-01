@@ -107,7 +107,7 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 		world.setBlockState(pos, newState);
 
 		// Perform updates
-		updateNeighbors(state, world, pos);
+		updateNeighbors(newState, world, pos);
 
 		// Schedule another update if necessary
 		if (requiresEvaluate(newState, world, pos)) {
