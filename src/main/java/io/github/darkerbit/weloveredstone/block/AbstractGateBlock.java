@@ -48,7 +48,7 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 	protected final Map<Direction, BooleanProperty> outputs = new HashMap<>();
 
-	protected AbstractGateBlock(Settings settings) {
+	public AbstractGateBlock(Settings settings) {
 		super(settings);
 	}
 
@@ -154,7 +154,7 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 	// Turns a global direction into a local direction
 	public Direction globalToLocalDirection(BlockState state, Direction dir) {
-		return Direction.fromHorizontal(dir.getHorizontal() - state.get(FACING).getHorizontal());
+		return Direction.fromHorizontal(dir.getHorizontal() + 4 - state.get(FACING).getHorizontal());
 	}
 
 	@Override

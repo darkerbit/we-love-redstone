@@ -27,59 +27,49 @@ import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class ThreeInputGateBlock extends AbstractGateBlock {
-	public interface ThreeInputEvaluator {
-		boolean evaluate(boolean left, boolean right, boolean mid);
-	}
+public class HalfAdderBlock extends AbstractGateBlock {
+	private static final BooleanProperty RESULT = BooleanProperty.of("result");
+	private static final BooleanProperty CARRY = BooleanProperty.of("carry");
 
-	private static final BooleanProperty OUT = Properties.POWERED;
+	private static final BooleanProperty A = BooleanProperty.of("a");
+	private static final BooleanProperty B = BooleanProperty.of("b");
 
-	private static final BooleanProperty LEFT = BooleanProperty.of("left");
-	private static final BooleanProperty RIGHT = BooleanProperty.of("right");
-	private static final BooleanProperty MID = BooleanProperty.of("mid");
-
-	private final ThreeInputEvaluator evaluator;
-
-	public ThreeInputGateBlock(Settings settings, ThreeInputEvaluator evaluator) {
+	public HalfAdderBlock(Settings settings) {
 		super(settings);
 
-		outputs.put(Direction.NORTH, OUT);
+		outputs.put(Direction.NORTH, RESULT);
+		outputs.put(Direction.WEST, CARRY);
 
-		inputs.put(LEFT, Direction.WEST);
-		inputs.put(RIGHT, Direction.EAST);
-		inputs.put(MID, Direction.SOUTH);
+		inputs.put(A, Direction.SOUTH);
+		inputs.put(B, Direction.EAST);
 
 		setDefaultState(getStateManager().getDefaultState()
 				.with(FACING, Direction.NORTH)
-				.with(OUT, evaluator.evaluate(false, false, false))
-				.with(LEFT, false)
-				.with(RIGHT, false)
-				.with(MID, false));
-
-		this.evaluator = evaluator;
+				.with(RESULT, false)
+				.with(CARRY, false)
+				.with(A, false)
+				.with(B, false));
 	}
 
 	@Override
 	protected BlockState evaluate(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-		boolean left = getInput(state, world, pos, LEFT);
-		boolean right = getInput(state, world, pos, RIGHT);
-		boolean mid = getInput(state, world, pos, MID);
+		boolean a = getInput(state, world, pos, A);
+		boolean b = getInput(state, world, pos, B);
 
-		return state.with(LEFT, left).with(RIGHT, right).with(MID, mid).with(OUT, evaluator.evaluate(left, right, mid));
+		return state.with(A, a).with(B, b).with(RESULT, a ^ b).with(CARRY, a && b);
 	}
 
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
 		builder.add(FACING);
-		builder.add(OUT);
-		builder.add(LEFT);
-		builder.add(RIGHT);
-		builder.add(MID);
+		builder.add(RESULT);
+		builder.add(CARRY);
+		builder.add(A);
+		builder.add(B);
 	}
 }
