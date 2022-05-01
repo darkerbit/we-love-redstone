@@ -30,7 +30,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -60,9 +59,21 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 	@Override
 	public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
+		updateNeighbors(state, world, pos);
+
 		// If this needs an evaluation immediately
 		if (requiresEvaluate(state, world, pos)) {
 			world.scheduleBlockTick(pos, this, 1);
+		}
+	}
+
+	@Override
+	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+		super.onStateReplaced(state, world, pos, newState, moved);
+
+		// If broken, re-evaluate strong redstone outputs
+		if (!moved && !state.isOf(newState.getBlock())) {
+			updateNeighbors(state, world, pos);
 		}
 	}
 
@@ -95,9 +106,19 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 		world.setBlockState(pos, newState);
 
+		// Perform updates
+		updateNeighbors(state, world, pos);
+
 		// Schedule another update if necessary
 		if (requiresEvaluate(newState, world, pos)) {
 			world.scheduleBlockTick(pos, this, 2);
+		}
+	}
+
+	protected void updateNeighbors(BlockState state, World world, BlockPos pos) {
+		world.updateNeighbors(pos, this);
+		for (var dir : outputs.keySet()) {
+			world.updateNeighbors(pos.offset(localToGlobalDirection(state, dir), -1), this);
 		}
 	}
 

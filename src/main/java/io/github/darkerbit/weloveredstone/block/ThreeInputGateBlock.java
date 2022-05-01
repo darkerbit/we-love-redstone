@@ -57,7 +57,7 @@ public class ThreeInputGateBlock extends AbstractGateBlock {
 
 		setDefaultState(getStateManager().getDefaultState()
 				.with(FACING, Direction.NORTH)
-				.with(OUT, false)
+				.with(OUT, evaluator.evaluate(false, false, false))
 				.with(LEFT, false)
 				.with(RIGHT, false)
 				.with(MID, false));
