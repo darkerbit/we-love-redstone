@@ -1,6 +1,7 @@
 {
   "parent": "weloveredstone:block/or_gate_block_mid",
   "textures": {
+    "0": "weloveredstone:block/or_gate_top_powered",
     "1": "weloveredstone:block/gate_misc_powered"
   }
 }
