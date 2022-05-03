@@ -33,8 +33,13 @@ public class WeLoveRedstone implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("We Love Redstone!");
 
 	public static final String MOD_ID = "weloveredstone";
+
 	public static Identifier identifier(String id) {
 		return new Identifier(MOD_ID, id);
+	}
+
+	public static String translationKey(String category, String id) {
+		return String.format("%s.%s.%s", category, MOD_ID, id);
 	}
 
 	@Override

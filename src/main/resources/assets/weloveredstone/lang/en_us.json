@@ -1,0 +1,25 @@
+{
+  "block.weloveredstone.or_gate_block": "OR Gate",
+  "block.weloveredstone.nor_gate_block": "NOR Gate",
+  "block.weloveredstone.and_gate_block": "AND Gate",
+  "block.weloveredstone.nand_gate_block": "NAND Gate",
+  "block.weloveredstone.xor_gate_block": "XOR Gate",
+  "block.weloveredstone.xnor_gate_block": "XNOR Gate",
+
+  "block.weloveredstone.half_adder_block": "Half-Adder",
+
+  "block.weloveredstone.multiplexer_block": "Multiplexer",
+  "block.weloveredstone.demultiplexer_block": "Demultiplexer",
+
+  "block.tooltip.weloveredstone.or_gate_block": "Turns on when any of it's inputs are on.",
+  "block.tooltip.weloveredstone.nor_gate_block": "&OPPOSITE&Opposite of OR Gate.\nTurns on when none of it's inputs are on.",
+  "block.tooltip.weloveredstone.and_gate_block": "Turns on when one of the side inputs\nand the middle input are both on.",
+  "block.tooltip.weloveredstone.nand_gate_block": "&OPPOSITE&Opposite of AND Gate.\nTurns off when one of the side inputs\nand the middle input are both on,\non otherwise.",
+  "block.tooltip.weloveredstone.xor_gate_block": "Turns on when an odd number of\ninputs is on.",
+  "block.tooltip.weloveredstone.xnor_gate_block": "&OPPOSITE&Opposite of XOR Gate.\nTurns on when an even number of\ninputs is on, including zero.",
+
+  "block.tooltip.weloveredstone.half_adder_block": "Adds together two binary digits,\noutputting the result at the top\nand the carry on the left.",
+
+  "block.tooltip.weloveredstone.multiplexer_block": "Outputs either the value of either\nthe left or right input depending on if\nthe bottom input is on.",
+  "block.tooltip.weloveredstone.demultiplexer_block": "&OPPOSITE&Opposite of Multiplexer.\nOutputs the value of the top input\nto either the left or right output\ndepending on if the bottom input is on."
+}
