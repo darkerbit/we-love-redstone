@@ -1,0 +1,100 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/thin_block",
+	"textures": {
+		"1": "weloveredstone:block/gate_misc",
+		"particle": "weloveredstone:block/gate_top"
+	},
+	"elements": [
+		{
+			"from": [13, 1, 7],
+			"to": [16, 2, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 1.5, 8]},
+			"faces": {
+				"east": {"uv": [0, 7, 2, 8], "texture": "#1", "cullface": "east"},
+				"up": {"uv": [0, 0, 2, 3], "rotation": 270, "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 1, 4],
+			"to": [13, 2, 7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 1.5, 8]},
+			"faces": {
+				"up": {"uv": [3, 1, 5, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [10, 2, 7],
+			"to": [14, 7, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"north": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"south": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 2, 6],
+			"to": [13, 7, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"east": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"west": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 5, 7],
+			"to": [13, 6, 9],
+			"faces": {
+				"up": {"uv": [10, 1, 12, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [10, 2, 2],
+			"to": [14, 7, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"north": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"south": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 2, 1],
+			"to": [13, 7, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"east": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"west": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 5, 2],
+			"to": [13, 6, 4],
+			"faces": {
+				"up": {"uv": [6, 1, 8, 3], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "Right",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				0,
+				1,
+				{
+					"name": "Torch 1",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [2, 3, 4]
+				},
+				{
+					"name": "Torch 2",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [5, 6, 7]
+				}
+			]
+		}
+	]
+}

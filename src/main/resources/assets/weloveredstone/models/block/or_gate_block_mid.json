@@ -1,0 +1,98 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/thin_block",
+	"textures": {
+		"1": "weloveredstone:block/gate_misc",
+		"particle": "weloveredstone:block/gate_top"
+	},
+	"elements": [
+		{
+			"from": [7, 1, 14],
+			"to": [9, 2, 16],
+			"faces": {
+				"south": {"uv": [0, 7, 2, 8], "texture": "#1", "cullface": "south"},
+				"up": {"uv": [0, 1, 2, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 1, 9],
+			"to": [9, 2, 12],
+			"faces": {
+				"up": {"uv": [3, 0, 5, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 2, 12],
+			"to": [10, 7, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"north": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"south": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 2, 11],
+			"to": [9, 7, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"east": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"west": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 5, 12],
+			"to": [9, 6, 14],
+			"faces": {
+				"up": {"uv": [10, 1, 12, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 2, 7],
+			"to": [10, 7, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"north": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"south": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 2, 6],
+			"to": [9, 7, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
+			"faces": {
+				"east": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"west": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 5, 7],
+			"to": [9, 6, 9],
+			"faces": {
+				"up": {"uv": [6, 1, 8, 3], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "Mid",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				0,
+				1,
+				{
+					"name": "Torch 1",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [2, 3, 4]
+				},
+				{
+					"name": "Torch 2",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [5, 6, 7]
+				}
+			]
+		}
+	]
+}

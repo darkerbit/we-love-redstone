@@ -1,0 +1,135 @@
+{
+  "multipart": [
+    {
+      "when": { "facing": "north", "powered": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block" }
+    },
+    {
+      "when": { "facing": "north", "powered": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_powered" }
+    },
+    {
+      "when": { "facing": "north", "left": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left" }
+    },
+    {
+      "when": { "facing": "north", "left": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left_powered" }
+    },
+    {
+      "when": { "facing": "north", "mid": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid" }
+    },
+    {
+      "when": { "facing": "north", "mid": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid_powered" }
+    },
+    {
+      "when": { "facing": "north", "right": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right" }
+    },
+    {
+      "when": { "facing": "north", "right": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right_powered" }
+    },
+
+    {
+      "when": { "facing": "east", "powered": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "powered": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_powered", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "left": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "left": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left_powered", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "mid": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "mid": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid_powered", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "right": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right", "y": 90 }
+    },
+    {
+      "when": { "facing": "east", "right": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right_powered", "y": 90 }
+    },
+
+    {
+      "when": { "facing": "south", "powered": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "powered": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_powered", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "left": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "left": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left_powered", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "mid": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "mid": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid_powered", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "right": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right", "y": 180 }
+    },
+    {
+      "when": { "facing": "south", "right": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right_powered", "y": 180 }
+    },
+
+    {
+      "when": { "facing": "west", "powered": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "powered": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_powered", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "left": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "left": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_left_powered", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "mid": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "mid": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_mid_powered", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "right": false },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right", "y": 270 }
+    },
+    {
+      "when": { "facing": "west", "right": true },
+      "apply": { "model": "weloveredstone:block/or_gate_block_right_powered", "y": 270 }
+    }
+  ]
+}

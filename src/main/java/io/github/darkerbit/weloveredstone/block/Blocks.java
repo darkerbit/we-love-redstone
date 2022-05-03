@@ -24,11 +24,13 @@ package io.github.darkerbit.weloveredstone.block;
 
 import io.github.darkerbit.weloveredstone.WeLoveRedstone;
 import net.minecraft.block.Block;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
+import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
@@ -64,5 +66,11 @@ public final class Blocks {
 		registerBlock(id, block);
 
 		Registry.register(Registry.ITEM, id, new BlockItem(block, new QuiltItemSettings().group(ItemGroup.REDSTONE)));
+	}
+
+	public static void registerClient() {
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), OR_GATE_BLOCK, AND_GATE_BLOCK, XOR_GATE_BLOCK);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), HALF_ADDER_BLOCK);
+		BlockRenderLayerMap.put(RenderLayer.getCutout(), MULTIPLEXER_BLOCK, DEMULTIPLEXER_BLOCK);
 	}
 }

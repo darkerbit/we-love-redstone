@@ -18,7 +18,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.darkerbit.weloveredstone.WeLoveRedstone"
+			"init": "io.github.darkerbit.weloveredstone.WeLoveRedstone",
+			"client_init": "io.github.darkerbit.weloveredstone.client.WeLoveRedstoneClient"
 		},
 		"depends": [
 			{
