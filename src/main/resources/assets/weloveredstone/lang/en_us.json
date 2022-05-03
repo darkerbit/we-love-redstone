@@ -8,7 +8,7 @@
   "block.weloveredstone.multiplexer_block": "Multiplexer",
   "block.weloveredstone.demultiplexer_block": "Demultiplexer",
 
-  "block.tooltip.weloveredstone.or_gate_block": "Turns on when any of it's inputs are on.",
+  "block.tooltip.weloveredstone.or_gate_block": "Turns on when any of its inputs are on.",
   "block.tooltip.weloveredstone.and_gate_block": "Turns on when one of the side inputs\nand the middle input are both on.",
   "block.tooltip.weloveredstone.xor_gate_block": "Turns on when an odd number of\ninputs is on.",
 
