@@ -23,10 +23,8 @@
 package io.github.darkerbit.weloveredstone.block;
 
 import io.github.darkerbit.weloveredstone.WeLoveRedstone;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.*;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -35,11 +33,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Language;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -52,6 +50,8 @@ import java.util.Map;
 import java.util.Random;
 
 public abstract class AbstractGateBlock extends HorizontalFacingBlock {
+	protected static final VoxelShape SHAPE = createCuboidShape(0, 0, 0, 16, 2, 16);
+
 	protected final Map<BooleanProperty, Direction> inputs = new HashMap<>();
 
 	protected final Map<Direction, BooleanProperty> outputs = new HashMap<>();
@@ -88,6 +88,11 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
 		return this.getDefaultState().with(FACING, ctx.getPlayerFacing());
+	}
+
+	@Override
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+		return SHAPE;
 	}
 
 	@Override
@@ -192,11 +197,7 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 		// For some reason, Minecraft's translations don't support newlines so I have to implement it myself.
 		for (String line : Language.getInstance().get(key).split("\\R")) {
-			if (line.startsWith("&OPPOSITE&")) {
-				tooltip.add(new LiteralText(line.substring("&OPPOSITE&".length())).formatted(Formatting.AQUA));
-			} else {
-				tooltip.add(new LiteralText(line));
-			}
+			tooltip.add(new LiteralText(line));
 		}
 	}
 }
