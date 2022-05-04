@@ -2,9 +2,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "minecraft:block/thin_block",
 	"textures": {
-		"0": "weloveredstone:block/or_gate_top",
 		"1": "weloveredstone:block/gate_misc",
-		"2": "weloveredstone:block/gate_top",
 		"particle": "weloveredstone:block/or_gate_top"
 	},
 	"elements": [
@@ -14,14 +12,13 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [15, 1.5, 8]},
 			"faces": {
 				"east": {"uv": [0, 15, 3, 16], "texture": "#1"},
-				"south": {"uv": [3, 1, 5, 2], "texture": "#1"},
 				"west": {"uv": [0, 15, 3, 16], "texture": "#1"},
 				"up": {"uv": [3, 1, 5, 4], "texture": "#1"}
 			}
 		},
 		{
-			"from": [11, 2, 12],
-			"to": [15, 7, 14],
+			"from": [10, 2, 12],
+			"to": [14, 7, 14],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
 			"faces": {
 				"north": {"uv": [9, 0, 13, 5], "texture": "#1"},
@@ -29,8 +26,8 @@
 			}
 		},
 		{
-			"from": [12, 2, 11],
-			"to": [14, 7, 15],
+			"from": [11, 2, 11],
+			"to": [13, 7, 15],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 13]},
 			"faces": {
 				"east": {"uv": [9, 0, 13, 5], "texture": "#1"},
@@ -38,8 +35,8 @@
 			}
 		},
 		{
-			"from": [12, 5, 12],
-			"to": [14, 6, 14],
+			"from": [11, 5, 12],
+			"to": [13, 6, 14],
 			"faces": {
 				"up": {"uv": [10, 1, 12, 3], "texture": "#1"}
 			}
@@ -70,16 +67,14 @@
 			}
 		},
 		{
-			"from": [9, 0, 7],
+			"from": [15, 0, 0],
 			"to": [16, 2, 16],
 			"faces": {
-				"east": {"uv": [0, 12, 9, 14], "texture": "#1", "cullface": "east"},
-				"south": {"uv": [9, 14, 16, 16], "texture": "#1", "cullface": "south"},
-				"up": {"uv": [9, 7, 16, 16], "texture": "#0"},
-				"down": {"uv": [9, 0, 16, 9], "texture": "#2", "cullface": "down"}
+				"east": {"uv": [0, 12, 16, 14], "texture": "#1", "cullface": "east"}
 			}
 		}
 	],
+	"display": {},
 	"groups": [
 		{
 			"name": "Right",
