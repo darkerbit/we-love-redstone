@@ -30,6 +30,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -81,5 +82,10 @@ public class ThreeInputGateBlock extends AbstractGateBlock {
 		builder.add(LEFT);
 		builder.add(RIGHT);
 		builder.add(MID);
+	}
+
+	@Override
+	protected boolean emitsParticles(BlockState state, World world, BlockPos pos, Random random) {
+		return state.get(OUT);
 	}
 }

@@ -29,6 +29,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.LiteralText;
@@ -190,6 +191,20 @@ public abstract class AbstractGateBlock extends HorizontalFacingBlock {
 
 		return state.get(outputs.get(localDir)) ? 15 : 0;
 	}
+
+	@Override
+	public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+		if (emitsParticles(state, world, pos, random)) {
+			double x = pos.getX() + 0.5 - (random.nextDouble() - 0.5) * 0.4;
+			double y = pos.getY() + 0.3 + random.nextDouble() * 0.3;
+			double z = pos.getZ() + 0.5 - (random.nextDouble() - 0.5) * 0.4;
+
+			world.addParticle(DustParticleEffect.DEFAULT, x, y, z, 0.0, 0.0, 0.0);
+		}
+	}
+
+	// Returns true if the gate should be emitting particles right now.
+	protected abstract boolean emitsParticles(BlockState state, World world, BlockPos pos, Random random);
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {

@@ -29,6 +29,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
@@ -71,5 +72,10 @@ public class DemultiplexerBlock extends AbstractGateBlock {
 		builder.add(SWITCH);
 		builder.add(LEFT);
 		builder.add(RIGHT);
+	}
+
+	@Override
+	protected boolean emitsParticles(BlockState state, World world, BlockPos pos, Random random) {
+		return state.get(LEFT) || state.get(RIGHT);
 	}
 }
