@@ -1,0 +1,75 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/thin_block",
+	"textures": {
+		"0": "weloveredstone:block/and_gate_top",
+		"1": "weloveredstone:block/gate_misc",
+		"2": "weloveredstone:block/gate_top",
+		"particle": "weloveredstone:block/and_gate_top"
+	},
+	"elements": [
+		{
+			"from": [7, 2, 1],
+			"to": [9, 7, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 3]},
+			"faces": {
+				"east": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"west": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6, 2, 2],
+			"to": [10, 7, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 3]},
+			"faces": {
+				"north": {"uv": [5, 0, 9, 5], "texture": "#1"},
+				"south": {"uv": [5, 0, 9, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [7, 5, 2],
+			"to": [9, 6, 4],
+			"faces": {
+				"up": {"uv": [6, 1, 8, 3], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 2, 8],
+			"faces": {
+				"north": {"uv": [0, 12, 16, 14], "texture": "#1", "cullface": "north"},
+				"east": {"uv": [8, 14, 16, 16], "texture": "#1", "cullface": "east"},
+				"west": {"uv": [0, 14, 8, 16], "texture": "#1", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 8], "texture": "#0"},
+				"down": {"uv": [0, 8, 16, 16], "texture": "#2", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, 0, 8],
+			"to": [7, 2, 16],
+			"faces": {
+				"south": {"uv": [0, 14, 7, 16], "texture": "#1", "cullface": "south"},
+				"west": {"uv": [8, 14, 16, 16], "texture": "#1", "cullface": "west"},
+				"up": {"uv": [0, 8, 7, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 7, 8], "texture": "#2", "cullface": "down"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "Base",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				{
+					"name": "Torch Off",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [0, 1, 2]
+				},
+				3,
+				4
+			]
+		}
+	]
+}

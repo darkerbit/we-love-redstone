@@ -1,0 +1,63 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/thin_block",
+	"textures": {
+		"0": "weloveredstone:block/and_gate_top",
+		"1": "weloveredstone:block/gate_misc",
+		"2": "weloveredstone:block/gate_top",
+		"particle": "weloveredstone:block/and_gate_top"
+	},
+	"elements": [
+		{
+			"from": [7, 0, 8],
+			"to": [16, 2, 16],
+			"faces": {
+				"east": {"uv": [0, 14, 8, 16], "texture": "#1", "cullface": "east"},
+				"south": {"uv": [7, 12, 16, 14], "texture": "#1", "cullface": "south"},
+				"up": {"uv": [7, 8, 16, 16], "texture": "#0"},
+				"down": {"uv": [7, 0, 16, 8], "texture": "#2", "cullface": "down"}
+			}
+		},
+		{
+			"from": [11, 2, 5],
+			"to": [13, 7, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 10]},
+			"faces": {
+				"east": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"west": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [10, 2, 6],
+			"to": [14, 7, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4.5, 10]},
+			"faces": {
+				"north": {"uv": [9, 0, 13, 5], "texture": "#1"},
+				"south": {"uv": [9, 0, 13, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [11, 5, 6],
+			"to": [13, 6, 8],
+			"faces": {
+				"up": {"uv": [10, 1, 12, 3], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "Mid",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [
+				0,
+				{
+					"name": "Torch On",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [1, 2, 3]
+				}
+			]
+		}
+	]
+}
