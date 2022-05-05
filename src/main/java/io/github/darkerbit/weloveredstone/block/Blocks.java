@@ -23,6 +23,8 @@
 package io.github.darkerbit.weloveredstone.block;
 
 import io.github.darkerbit.weloveredstone.WeLoveRedstone;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
@@ -68,6 +70,7 @@ public final class Blocks {
 		Registry.register(Registry.ITEM, id, new BlockItem(block, new QuiltItemSettings().group(ItemGroup.REDSTONE)));
 	}
 
+	@Environment(EnvType.CLIENT)
 	public static void registerClient() {
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), OR_GATE_BLOCK, AND_GATE_BLOCK, XOR_GATE_BLOCK);
 		BlockRenderLayerMap.put(RenderLayer.getCutout(), HALF_ADDER_BLOCK);

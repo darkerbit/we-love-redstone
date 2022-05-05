@@ -23,9 +23,12 @@
 package io.github.darkerbit.weloveredstone.client;
 
 import io.github.darkerbit.weloveredstone.block.Blocks;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
+@Environment(EnvType.CLIENT)
 public class WeLoveRedstoneClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient(ModContainer mod) {
