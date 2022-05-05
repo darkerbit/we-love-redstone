@@ -36,6 +36,8 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
+	public static final Block BLOCK_PLACER_BLOCK = new BlockPlacerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER));
+
 	public static final Block OR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
 			(left, right, mid) -> left || right || mid);
 	public static final Block AND_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
@@ -50,6 +52,8 @@ public final class Blocks {
 	public static final Block DEMULTIPLEXER_BLOCK = new DemultiplexerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
 
 	public static void register() {
+		registerBlockWithItem(WeLoveRedstone.identifier("block_placer_block"), BLOCK_PLACER_BLOCK);
+
 		registerBlockWithItem(WeLoveRedstone.identifier("or_gate_block"), OR_GATE_BLOCK);
 		registerBlockWithItem(WeLoveRedstone.identifier("and_gate_block"), AND_GATE_BLOCK);
 		registerBlockWithItem(WeLoveRedstone.identifier("xor_gate_block"), XOR_GATE_BLOCK);

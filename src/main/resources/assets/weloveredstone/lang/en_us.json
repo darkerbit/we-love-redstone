@@ -1,4 +1,6 @@
 {
+  "block.weloveredstone.block_placer_block": "Block Placer",
+
   "block.weloveredstone.or_gate_block": "OR Gate",
   "block.weloveredstone.and_gate_block": "AND Gate",
   "block.weloveredstone.xor_gate_block": "XOR Gate",
@@ -7,6 +9,8 @@
 
   "block.weloveredstone.multiplexer_block": "Multiplexer",
   "block.weloveredstone.demultiplexer_block": "Demultiplexer",
+
+  "container.weloveredstone.block_placer": "Block Placer",
 
   "block.tooltip.weloveredstone.or_gate_block": "Turns on when any of its inputs are on.",
   "block.tooltip.weloveredstone.and_gate_block": "Turns on when one of the side inputs\nand the middle input are both on.",
