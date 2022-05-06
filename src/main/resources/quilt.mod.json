@@ -18,21 +18,17 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.darkerbit.weloveredstone.WeLoveRedstone",
-			"client_init": "io.github.darkerbit.weloveredstone.client.WeLoveRedstoneClient"
+			"main": "io.github.darkerbit.weloveredstone.WeLoveRedstone",
+			"client": "io.github.darkerbit.weloveredstone.client.WeLoveRedstoneClient"
 		},
 		"depends": [
 			{
-				"id": "quilt_loader",
-				"versions": ">=0.16.0-"
-			},
-			{
-				"id": "quilted_fabric_api",
-				"versions": ">=1.0.0-"
-			},
-			{
 				"id": "minecraft",
 				"versions": ">=1.18.2"
+			},
+			{
+				"id": "fabric",
+				"versions": "*"
 			}
 		]
 	},

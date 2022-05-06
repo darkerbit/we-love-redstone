@@ -24,9 +24,8 @@ package io.github.darkerbit.weloveredstone;
 
 import io.github.darkerbit.weloveredstone.block.Blocks;
 import io.github.darkerbit.weloveredstone.block.entity.BlockEntities;
+import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,7 +43,7 @@ public class WeLoveRedstone implements ModInitializer {
 	}
 
 	@Override
-	public void onInitialize(ModContainer mod) {
+	public void onInitialize() {
 		Blocks.register();
 		BlockEntities.register();
 	}

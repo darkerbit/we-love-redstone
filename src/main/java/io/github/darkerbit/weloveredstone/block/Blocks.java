@@ -25,6 +25,9 @@ package io.github.darkerbit.weloveredstone.block;
 import io.github.darkerbit.weloveredstone.WeLoveRedstone;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
@@ -32,26 +35,23 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
-import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
 	public static final TagKey<Block> MOVEABLE_BLOCK_ENTITIES = TagKey.of(Registry.BLOCK_KEY, WeLoveRedstone.id("moveable_block_entities"));
 
 	public static final Block BLOCK_PLACER_BLOCK =
-			register("block_placer_block", new BlockPlacerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER)));
+			register("block_placer_block", new BlockPlacerBlock(FabricBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER)));
 
 	public static final Block OR_GATE_BLOCK = register("or_gate_block", (left, right, mid) -> left || right || mid);
 	public static final Block AND_GATE_BLOCK = register("and_gate_block", (left, right, mid) -> (left || right) && mid);
 	public static final Block XOR_GATE_BLOCK = register("xor_gate_block", (left, right, mid) -> left ^ right ^ mid);
 
 	public static final Block HALF_ADDER_BLOCK =
-			register("half_adder_block", new HalfAdderBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
+			register("half_adder_block", new HalfAdderBlock(FabricBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
 
 	public static final Block MULTIPLEXER_BLOCK = register("multiplexer_block", (left, right, mid) -> mid ? right : left);
 	public static final Block DEMULTIPLEXER_BLOCK =
-			register("demultiplexer_block", new DemultiplexerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
+			register("demultiplexer_block", new DemultiplexerBlock(FabricBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
 
 	public static void register() {}
 
@@ -66,7 +66,7 @@ public final class Blocks {
 	private static Block register(Identifier id, Block block) {
 		block = registerBlock(id, block);
 
-		Registry.register(Registry.ITEM, id, new BlockItem(block, new QuiltItemSettings().group(ItemGroup.REDSTONE)));
+		Registry.register(Registry.ITEM, id, new BlockItem(block, new FabricItemSettings().group(ItemGroup.REDSTONE)));
 
 		return block;
 	}
@@ -76,13 +76,13 @@ public final class Blocks {
 	}
 
 	private static Block register(String id, ThreeInputGateBlock.ThreeInputEvaluator evaluator) {
-		return register(id, new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER), evaluator));
+		return register(id, new ThreeInputGateBlock(FabricBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER), evaluator));
 	}
 
 	@Environment(EnvType.CLIENT)
 	public static void registerClient() {
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), OR_GATE_BLOCK, AND_GATE_BLOCK, XOR_GATE_BLOCK);
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), HALF_ADDER_BLOCK);
-		BlockRenderLayerMap.put(RenderLayer.getCutout(), MULTIPLEXER_BLOCK, DEMULTIPLEXER_BLOCK);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), OR_GATE_BLOCK, AND_GATE_BLOCK, XOR_GATE_BLOCK);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), HALF_ADDER_BLOCK);
+		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), MULTIPLEXER_BLOCK, DEMULTIPLEXER_BLOCK);
 	}
 }
