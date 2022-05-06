@@ -1,9 +1,13 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "",
+	"package": "io.github.darkerbit.weloveredstone.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [],
+	"mixins": [
+      "PistonBlockMixin",
+      "BlockStateMixin",
+      "PistonBlockEntityMixin"
+    ],
 	"client": [],
 	"injectors": {
 		"defaultRequire": 1

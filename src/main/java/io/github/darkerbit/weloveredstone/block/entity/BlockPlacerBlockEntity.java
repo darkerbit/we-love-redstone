@@ -99,7 +99,11 @@ public class BlockPlacerBlockEntity extends LockableContainerBlockEntity {
 
 	@Override
 	public boolean canPlayerUse(PlayerEntity player) {
-		return true;
+		if (world.getBlockEntity(this.pos) != this) {
+			return false;
+		} else {
+			return !(player.squaredDistanceTo((double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5) > 64.0);
+		}
 	}
 
 	@Override

@@ -131,7 +131,7 @@ public class BlockPlacerBlock extends BlockWithEntity {
 	@Override
 	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
 		if (!newState.isOf(this)) {
-			if (world.getBlockEntity(pos) instanceof BlockPlacerBlockEntity blockEntity) {
+			if (!moved && world.getBlockEntity(pos) instanceof BlockPlacerBlockEntity blockEntity) {
 				ItemScatterer.spawn(world, pos, blockEntity);
 				world.updateComparators(pos, this);
 			}

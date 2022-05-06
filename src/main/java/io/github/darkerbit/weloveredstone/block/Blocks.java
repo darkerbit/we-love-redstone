@@ -29,6 +29,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
@@ -36,6 +37,8 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
+	public static final TagKey<Block> MOVEABLE_BLOCK_ENTITIES = TagKey.of(Registry.BLOCK_KEY, WeLoveRedstone.identifier("moveable_block_entities"));
+
 	public static final Block BLOCK_PLACER_BLOCK = new BlockPlacerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER));
 
 	public static final Block OR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
