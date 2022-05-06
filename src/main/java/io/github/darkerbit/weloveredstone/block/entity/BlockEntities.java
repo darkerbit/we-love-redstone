@@ -13,10 +13,14 @@ public final class BlockEntities {
 	public static BlockEntityType<BlockPlacerBlockEntity> BLOCK_PLACER_BLOCK_ENTITY;
 
 	public static void register() {
-		BLOCK_PLACER_BLOCK_ENTITY = registerBlockEntity(WeLoveRedstone.identifier("block_placer_block_entity"), BlockPlacerBlockEntity::new, Blocks.BLOCK_PLACER_BLOCK);
+		BLOCK_PLACER_BLOCK_ENTITY = register("block_placer_block_entity", BlockPlacerBlockEntity::new, Blocks.BLOCK_PLACER_BLOCK);
 	}
 
-	private static <T extends BlockEntity> BlockEntityType<T> registerBlockEntity(Identifier id, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
+	private static <T extends BlockEntity> BlockEntityType<T> register(Identifier id, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
 		return Registry.register(Registry.BLOCK_ENTITY_TYPE, id, FabricBlockEntityTypeBuilder.create(factory, block).build());
+	}
+
+	private static <T extends BlockEntity> BlockEntityType<T> register(String id, FabricBlockEntityTypeBuilder.Factory<T> factory, Block block) {
+		return register(WeLoveRedstone.id(id), factory, block);
 	}
 }

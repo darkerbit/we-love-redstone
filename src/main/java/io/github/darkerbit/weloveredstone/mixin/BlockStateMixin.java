@@ -2,7 +2,7 @@ package io.github.darkerbit.weloveredstone.mixin;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.MapCodec;
-import io.github.darkerbit.weloveredstone.block.BlockStateExtensions;
+import io.github.darkerbit.weloveredstone.impl.BlockStateExtensions;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

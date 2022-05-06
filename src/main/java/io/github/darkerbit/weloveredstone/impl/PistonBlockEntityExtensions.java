@@ -1,4 +1,4 @@
-package io.github.darkerbit.weloveredstone.block.entity;
+package io.github.darkerbit.weloveredstone.impl;
 
 import net.minecraft.nbt.NbtCompound;
 

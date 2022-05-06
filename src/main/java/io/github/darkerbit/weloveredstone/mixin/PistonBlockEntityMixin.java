@@ -1,8 +1,8 @@
 package io.github.darkerbit.weloveredstone.mixin;
 
-import io.github.darkerbit.weloveredstone.block.BlockStateExtensions;
 import io.github.darkerbit.weloveredstone.block.Blocks;
-import io.github.darkerbit.weloveredstone.block.entity.PistonBlockEntityExtensions;
+import io.github.darkerbit.weloveredstone.impl.BlockStateExtensions;
+import io.github.darkerbit.weloveredstone.impl.PistonBlockEntityExtensions;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;

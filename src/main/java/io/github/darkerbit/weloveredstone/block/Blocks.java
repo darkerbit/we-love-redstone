@@ -37,44 +37,46 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 public final class Blocks {
-	public static final TagKey<Block> MOVEABLE_BLOCK_ENTITIES = TagKey.of(Registry.BLOCK_KEY, WeLoveRedstone.identifier("moveable_block_entities"));
+	public static final TagKey<Block> MOVEABLE_BLOCK_ENTITIES = TagKey.of(Registry.BLOCK_KEY, WeLoveRedstone.id("moveable_block_entities"));
 
-	public static final Block BLOCK_PLACER_BLOCK = new BlockPlacerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER));
+	public static final Block BLOCK_PLACER_BLOCK =
+			register("block_placer_block", new BlockPlacerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.DISPENSER)));
 
-	public static final Block OR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
-			(left, right, mid) -> left || right || mid);
-	public static final Block AND_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
-			(left, right, mid) -> (left || right) && mid);
-	public static final Block XOR_GATE_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
-			(left, right, mid) -> left ^ right ^ mid);
+	public static final Block OR_GATE_BLOCK = register("or_gate_block", (left, right, mid) -> left || right || mid);
+	public static final Block AND_GATE_BLOCK = register("and_gate_block", (left, right, mid) -> (left || right) && mid);
+	public static final Block XOR_GATE_BLOCK = register("xor_gate_block", (left, right, mid) -> left ^ right ^ mid);
 
-	public static final Block HALF_ADDER_BLOCK = new HalfAdderBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
+	public static final Block HALF_ADDER_BLOCK =
+			register("half_adder_block", new HalfAdderBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
 
-	public static final Block MULTIPLEXER_BLOCK = new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER),
-			((left, right, mid) -> mid ? right : left));
-	public static final Block DEMULTIPLEXER_BLOCK = new DemultiplexerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER));
+	public static final Block MULTIPLEXER_BLOCK = register("multiplexer_block", (left, right, mid) -> mid ? right : left);
+	public static final Block DEMULTIPLEXER_BLOCK =
+			register("demultiplexer_block", new DemultiplexerBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER)));
 
-	public static void register() {
-		registerBlockWithItem(WeLoveRedstone.identifier("block_placer_block"), BLOCK_PLACER_BLOCK);
+	public static void register() {}
 
-		registerBlockWithItem(WeLoveRedstone.identifier("or_gate_block"), OR_GATE_BLOCK);
-		registerBlockWithItem(WeLoveRedstone.identifier("and_gate_block"), AND_GATE_BLOCK);
-		registerBlockWithItem(WeLoveRedstone.identifier("xor_gate_block"), XOR_GATE_BLOCK);
-
-		registerBlockWithItem(WeLoveRedstone.identifier("half_adder_block"), HALF_ADDER_BLOCK);
-
-		registerBlockWithItem(WeLoveRedstone.identifier("multiplexer_block"), MULTIPLEXER_BLOCK);
-		registerBlockWithItem(WeLoveRedstone.identifier("demultiplexer_block"), DEMULTIPLEXER_BLOCK);
+	private static Block registerBlock(Identifier id, Block block) {
+		return Registry.register(Registry.BLOCK, id, block);
 	}
 
-	private static void registerBlock(Identifier id, Block block) {
-		Registry.register(Registry.BLOCK, id, block);
+	private static Block registerBlock(String id, Block block) {
+		return registerBlock(WeLoveRedstone.id(id), block);
 	}
 
-	private static void registerBlockWithItem(Identifier id, Block block) {
-		registerBlock(id, block);
+	private static Block register(Identifier id, Block block) {
+		block = registerBlock(id, block);
 
 		Registry.register(Registry.ITEM, id, new BlockItem(block, new QuiltItemSettings().group(ItemGroup.REDSTONE)));
+
+		return block;
+	}
+
+	private static Block register(String id, Block block) {
+		return register(WeLoveRedstone.id(id), block);
+	}
+
+	private static Block register(String id, ThreeInputGateBlock.ThreeInputEvaluator evaluator) {
+		return register(id, new ThreeInputGateBlock(QuiltBlockSettings.copyOf(net.minecraft.block.Blocks.REPEATER), evaluator));
 	}
 
 	@Environment(EnvType.CLIENT)

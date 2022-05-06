@@ -35,7 +35,7 @@ public class WeLoveRedstone implements ModInitializer {
 
 	public static final String MOD_ID = "weloveredstone";
 
-	public static Identifier identifier(String id) {
+	public static Identifier id(String id) {
 		return new Identifier(MOD_ID, id);
 	}
 
